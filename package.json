@@ -4,8 +4,12 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "node ./index",
+    "start": "node ./src/index",
     "test": "jest --runInBand --detectOpenHandles"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "rootDir": "./src/"
   },
   "dependencies": {
     "body-parser": "~1.19.0",
