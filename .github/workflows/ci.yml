@@ -53,9 +53,9 @@ jobs:
       - run: npm ci
       
       - name: Query database
-        run: psql           -f ./envdb/database.sql
-          && psql -d techdb -f ./envdb/table.sql
-          && psql -d techdb -f ./envdb/initdata.sql
+        run: psql -f .envdb/database.sql
+          && psql -d techdb -f .envdb/table.sql
+          && psql -d techdb -f .envdb/initdata.sql
         env:
           PGPASSWORD: gitpod
 
