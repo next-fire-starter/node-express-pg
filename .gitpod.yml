@@ -1,0 +1,24 @@
+image:
+  file: .gitpod.Dockerfile
+
+# データベースを作成するファイル database.sql を読み込む
+# テーブル作成用SQLファイル table.sql を読み込む
+# 初期データ initdata.sql を読み込む
+# JS 準備
+tasks:
+  - init: psql           -f ./envdb/database.sql
+       && psql -d techdb -f ./envdb/table.sql
+       && psql -d techdb -f ./envdb/initdata.sql
+       && npm install
+  - command: export TZ="Asia/Tokyo"
+
+# Postgresql
+# GitHub Pullrequest & Issues
+# GitLens
+# GitHistory
+vscode:
+  extensions:
+    - ckolkman.vscode-postgres@1.1.17:804d27cd5e9ff60a8c46a387413e9cbf
+    - github.vscode-pull-request-github@0.26.0:93ed47938ac0dc940991c06c1b31bcaa
+    - eamodio.gitlens@11.4.1:5426ef7c59a1fd3c808d1e1514afb539
+    - donjayamanne.githistory@0.6.16:6bd320b35762b18affb4459e5ae66c68
