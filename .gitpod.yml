@@ -6,7 +6,8 @@ image:
 # 初期データ initdata.sql を読み込む
 # JS 準備
 tasks:
-  - init: psql           -f ./envdb/database.sql
+  - init: export POSTGRES_HOST=localhost
+       && psql           -f ./envdb/database.sql
        && psql -d techdb -f ./envdb/table.sql
        && psql -d techdb -f ./envdb/initdata.sql
        && npm install
