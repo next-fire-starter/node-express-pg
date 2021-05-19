@@ -25,7 +25,7 @@ jobs:
         # `POSTGRES_HOST` is `postgres`
         env:
           # optional (defaults to `postgres`)
-          POSTGRES_DB: postgres_db
+          POSTGRES_DB: postgres
           # required
           POSTGRES_PASSWORD: gitpod
           # optional (defaults to `5432`)
@@ -52,7 +52,7 @@ jobs:
       - run: npm ci
       
       - name: Query database
-        run: psql -h postgres -U gitpod           -f ./envdb/database.sql
+        run: psql -h postgres -U gitpod -f ./envdb/database.sql
    #       && psql -h postgres -U gitpod -d techdb -f ./envdb/table.sql
    #       && psql -h postgres -U gitpod -d techdb -f ./envdb/initdata.sql
         env:
