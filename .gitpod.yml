@@ -11,6 +11,7 @@ tasks:
        && psql -d techdb -f ./envdb/initdata.sql
        && npm install
   - command: export TZ="Asia/Tokyo"
+  - command: export POSTGRES_HOST=localhost
 
 # Postgresql
 # GitHub Pullrequest & Issues
