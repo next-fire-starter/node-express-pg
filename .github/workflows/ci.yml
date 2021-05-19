@@ -9,7 +9,7 @@ on:
 
 jobs:
   # label of the container job
-  postgres-job:
+  ci-job:
     # containers must run in Linux based operating systems
     runs-on: ubuntu-20.04
     # Docker Hub image that `postgres-job` executes in
