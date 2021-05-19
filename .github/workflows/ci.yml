@@ -1,0 +1,61 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node-Express-pg-CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  # label of the container job
+  postgres-job:
+    # containers must run in Linux based operating systems
+    runs-on: ubuntu-20.04
+    # Docker Hub image that `postgres-job` executes in
+    container: node:14.16.1
+
+    # service containers to run with `postgres-job`
+    services:
+      # label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:12.6
+        # service environment variables
+        # `POSTGRES_HOST` is `postgres`
+        env:
+          # optional (defaults to `postgres`)
+          POSTGRES_DB: postgres_db
+          # required
+          POSTGRES_PASSWORD: gitpod
+          # optional (defaults to `5432`)
+          POSTGRES_PORT: 5432
+          # optional (defaults to `postgres`)
+          POSTGRES_USER: gitpod
+        ports:
+          # maps tcp port 5432 on service container to the host
+          - 5432:5432
+        # set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Install PostgreSQL client
+        run: |
+          apt-get update
+          apt-get install --yes postgresql-client
+
+      - uses: actions/checkout@v2
+      - run: npm ci
+      
+      - name: Query database
+        run: psql           -f ./envdb/database.sql
+          && psql -d techdb -f ./envdb/table.sql
+          && psql -d techdb -f ./envdb/initdata.sql
+        env:
+          PGPASSWORD: gitpod
+
+      - run: npm run build --if-present
+      - run: npm test
