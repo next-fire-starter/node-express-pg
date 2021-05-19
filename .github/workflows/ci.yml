@@ -48,6 +48,8 @@ jobs:
           apt-get install --yes postgresql-client
 
       - uses: actions/checkout@v2
+      - run: ls -la
+      
       - run: npm ci
       
       - name: Query database
