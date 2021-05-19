@@ -1,0 +1,10 @@
+-- テーブル定義
+
+-- メモ
+DROP TABLE IF EXISTS memo;
+CREATE TABLE IF NOT EXISTS memo ( 
+  memoid NUMERIC NOT NULL,
+  title VARCHAR(20) NOT NULL, 
+  note TEXT NOT NULL, 
+  PRIMARY KEY (memoid)
+) WITHOUT OIDS;
