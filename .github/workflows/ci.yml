@@ -48,16 +48,15 @@ jobs:
           apt-get install --yes postgresql-client
 
       - uses: actions/checkout@v2
-      - run: ls -la
       
       - run: npm ci
       
       - name: Query database
         run: psql -h postgres -U gitpod           -f ./envdb/database.sql
-          && psql -h postgres -U gitpod -d techdb -f ./envdb/table.sql
-          && psql -h postgres -U gitpod -d techdb -f ./envdb/initdata.sql
+   #       && psql -h postgres -U gitpod -d techdb -f ./envdb/table.sql
+   #       && psql -h postgres -U gitpod -d techdb -f ./envdb/initdata.sql
         env:
           PGPASSWORD: gitpod
 
-      - run: npm run build --if-present
-      - run: npm test
+   #   - run: npm run build --if-present
+   #   - run: npm test
