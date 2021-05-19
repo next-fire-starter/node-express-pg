@@ -1,7 +1,7 @@
 const pg = require('pg')
 require('dotenv').config();
 
-const pghost = process.env.POSTGRES_HOST || localhost
+const pghost = process.env.POSTGRES_HOST || 'localhost'
 
 //-----------------------------------------------------DB接続
 const pool = new pg.Pool({
