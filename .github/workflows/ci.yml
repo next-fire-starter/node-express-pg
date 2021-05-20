@@ -7,6 +7,8 @@ name: Node-Express-pg-CI
 on:
   push:
     branches: [ main ]
+    paths-ignore: 
+      - 'README.md'
 
 jobs:
   # label Name
