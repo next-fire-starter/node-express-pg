@@ -12,7 +12,7 @@ tasks:
        && npm install
     command: export TZ="Asia/Tokyo"
 
-# PostgreSQLのポートは公開設定
+# PostgreSQLのポートはユーザ通知を停止
 ports:
   - port: 5432
     onOpen: ignore
