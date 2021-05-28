@@ -12,8 +12,9 @@ tasks:
        && npm install
     command: export TZ="Asia/Tokyo"
 
+# PostgreSQLのポートは公開設定
 ports:
-  - port: 3000
+  - port: 5432
     onOpen: ignore
 
 # Postgresql
