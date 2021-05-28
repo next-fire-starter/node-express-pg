@@ -1,6 +1,11 @@
 image:
   file: .gitpod.Dockerfile
 
+# 確認不要のPostgreSQLポート
+ports:
+  - port: 5432
+    onOpen: ignore
+
 # データベースを作成するファイル database.sql を読み込む
 # テーブル作成用SQLファイル table.sql を読み込む
 # 初期データ initdata.sql を読み込む
