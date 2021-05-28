@@ -12,6 +12,10 @@ tasks:
        && npm install
     command: export TZ="Asia/Tokyo"
 
+ports:
+  - port: 3000-8999
+    onOpen: ignore
+
 # Postgresql
 # GitHub Pullrequest & Issues
 # GitLens
