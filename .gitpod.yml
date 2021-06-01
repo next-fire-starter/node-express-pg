@@ -10,7 +10,7 @@ tasks:
        && psql -d techdb -f ./envdb/table.sql
        && psql -d techdb -f ./envdb/initdata.sql
        && npm install
-    command: export TZ="Asia/Tokyo"
+ #   command: export TZ="Asia/Tokyo"
 
 # PostgreSQLのポートはユーザ通知を停止
 ports:
