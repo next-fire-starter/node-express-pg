@@ -22,7 +22,7 @@ jobs:
       # service container
       postgres:
         # Docker Hub image PostgreSQL
-        image: postgres:12.6
+        image: postgres:12.17
         env:
           POSTGRES_DB: gitpod
           POSTGRES_PASSWORD: gitpod
