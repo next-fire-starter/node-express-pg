@@ -14,7 +14,7 @@ jobs:
   # label Name
   ci-job:
     # containers operating systems
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     # Docker Hub image Node
     container: node:14.16.1
 
